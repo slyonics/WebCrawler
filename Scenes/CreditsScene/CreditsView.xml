@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<View>
+
+  <Panel Style="BattleWindow" Anchor="$CenterX,$CenterY" Bounds="-145,-90,290,180" InnerMargin="7,5,7,0" TransitionIn="Expand" TransitionOut="Shrink">
+
+    <Panel Bounds="0,0,276,170" InnerMargin="0,6,0,0">
+
+		<Label Text="Created for RPG Mania VII" Alignment="Vertical" Font="Dialogue" Color="#C7895BFF" Bounds="0,40,276,13"/>
+
+		<Label Text="Barun" Alignment="Vertical" Font="Interface" Bounds="0,0,276,10" Color="#E0BFA2FF"/>
+		<Label Text="Curlpixel" Alignment="Vertical" Font="Interface" Bounds="0,0,276,10" Color="#E0BFA2FF"/>
+		<Label Text="Okrivan" Alignment="Vertical" Font="Interface" Bounds="0,0,276,10" Color="#E0BFA2FF"/>
+		<Label Text="Slyonics" Alignment="Vertical" Font="Interface" Bounds="0,0,276,10" Color="#E0BFA2FF"/>
+
+		<LineBreak/>
+
+		<Label Text="Includes fonts by" Alignment="Vertical" Font="Dialogue" Color="#C7895BFF"/>
+		<Label Text="Masubiwa, Patrick H. Lauke" Alignment="Vertical" Font="Interface" Bounds="0,0,276,13" Color="#E0BFA2FF"/>
+		
+    </Panel>
+  </Panel>
+  
+</View>

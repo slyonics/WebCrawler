@@ -1,0 +1,66 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:BlazorGL
+/config:
+/profile:HiDef
+/compress:True
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin Graphics/Background/Splash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/Background/Splash.png
+
+#begin Shaders/ColorFade.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/ColorFade.fx
+
+#begin Shaders/Common.fxh
+/copy:Shaders/Common.fxh
+
+#begin Shaders/Default.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/Default.fx
+
+#begin Shaders/Lighting.fxh
+/copy:Shaders/Lighting.fxh
+
+#begin Shaders/Macros.fxh
+/copy:Shaders/Macros.fxh
+
+#begin Shaders/Structures.fxh
+/copy:Shaders/Structures.fxh
+
+#begin Shaders/Wall.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/Wall.fx
+
+#begin Shaders/WallPlus.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/WallPlus.fx
+
+#begin Views/MapView.xml
+/copy:Views/MapView.xml
+
