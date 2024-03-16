@@ -88,11 +88,11 @@ namespace WebCrawler.Scenes.ConversationScene
         {
             switch (parameter)
             {
-                case "$leftPortraitX": return (((int)(WebCrawlerGame.ScreenWidth / 1.6) - 60) / 2).ToString();
-                case "$rightPortraitX": return (WebCrawlerGame.ScreenWidth - ((int)(WebCrawlerGame.ScreenWidth / 1.6) - 60) / 2).ToString();
-                case "$portraitY": return ((int)(WebCrawlerGame.ScreenHeight)).ToString();
-                case "$portraitScaleX": return (WebCrawlerGame.ScreenWidth / 1920.0f / 1.6f).ToString();
-                case "$portraitScaleY": return (WebCrawlerGame.ScreenHeight / 1080.0f / 1.6f).ToString();
+                case "$leftPortraitX": return (((int)(CrossPlatformCrawlerGame.ScreenWidth / 1.6) - 60) / 2).ToString();
+                case "$rightPortraitX": return (CrossPlatformCrawlerGame.ScreenWidth - ((int)(CrossPlatformCrawlerGame.ScreenWidth / 1.6) - 60) / 2).ToString();
+                case "$portraitY": return ((int)(CrossPlatformCrawlerGame.ScreenHeight)).ToString();
+                case "$portraitScaleX": return (CrossPlatformCrawlerGame.ScreenWidth / 1920.0f / 1.6f).ToString();
+                case "$portraitScaleY": return (CrossPlatformCrawlerGame.ScreenHeight / 1080.0f / 1.6f).ToString();
                 default: return base.ParseParameter(parameter);
             }
         }

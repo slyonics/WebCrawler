@@ -105,7 +105,7 @@ namespace WebCrawler.Scenes.TitleScene
                     commandBox.Enabled = false;
                     GameProfile.NewState();
                     GameProfile.PlayerProfile.Party.Add(new HeroModel("Arthur", "Portraits_YoungMC", "Actors_YoungMC"));
-                    WebCrawlerGame.Transition(typeof(MapScene.MapScene), GameMap.TechWorldIntro, 22, 37, Orientation.Down);
+                    CrossPlatformCrawlerGame.Transition(typeof(MapScene.MapScene), GameMap.TechWorldIntro, 22, 37, Orientation.Down);
                     break;
 
                 case "Continue":
@@ -119,7 +119,7 @@ namespace WebCrawler.Scenes.TitleScene
                 case "Map Test":
                     commandBox.Enabled = false;
                     GameProfile.NewState();
-                    WebCrawlerGame.Transition(typeof(CrawlerScene.CrawlerScene), 0);
+                    CrossPlatformCrawlerGame.Transition(typeof(CrawlerScene.CrawlerScene), 0);
                     break;
             }
         }
@@ -155,7 +155,7 @@ namespace WebCrawler.Scenes.TitleScene
         {
             Settings.SaveSettings();
 
-            WebCrawlerGame.GameInstance.Exit();
+            CrossPlatformCrawlerGame.GameInstance.Exit();
         }
 
         public override void Terminate()

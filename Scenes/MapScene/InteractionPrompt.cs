@@ -33,7 +33,7 @@ namespace WebCrawler.Scenes.MapScene
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (WebCrawlerGame.CurrentScene != mapScene) return;
+            if (CrossPlatformCrawlerGame.CurrentScene != mapScene) return;
 
             if (target != null && mapScene.PriorityLevel == PriorityLevel.GameLevel)
             {
@@ -46,9 +46,9 @@ namespace WebCrawler.Scenes.MapScene
 
                 Vector2 drawPosition = target.LabelPosition;
                 if (drawPosition.X - (textbox.Bounds.Width / 2) <= mapScene.Camera.Position.X) drawPosition.X = mapScene.Camera.Position.X + (textbox.Bounds.Width / 2);
-                if (drawPosition.X + (textbox.Bounds.Width / 2) - mapScene.Camera.Position.X >= WebCrawlerGame.ScreenWidth)
+                if (drawPosition.X + (textbox.Bounds.Width / 2) - mapScene.Camera.Position.X >= CrossPlatformCrawlerGame.ScreenWidth)
                 {
-                    drawPosition.X = WebCrawlerGame.ScreenWidth - (textbox.Bounds.Width / 2) + mapScene.Camera.Position.X;
+                    drawPosition.X = CrossPlatformCrawlerGame.ScreenWidth - (textbox.Bounds.Width / 2) + mapScene.Camera.Position.X;
                 }
 
                 textbox.Draw(spriteBatch, drawPosition - mapScene.Camera.Position - new Vector2(textbox.Bounds.Width / 2, 0) - cameraOffset);

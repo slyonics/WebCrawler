@@ -26,13 +26,13 @@ namespace WebCrawler.Scenes.SplashScene
 
         public override void DrawBackground(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(splashSprite, new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight), new Rectangle(0, 0, 1, 1), Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(splashSprite, new Rectangle((WebCrawlerGame.ScreenWidth - splashSprite.Width) / 2, (WebCrawlerGame.ScreenHeight - splashSprite.Height) / 2, splashSprite.Width, splashSprite.Height), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(splashSprite, new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight), new Rectangle(0, 0, 1, 1), Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(splashSprite, new Rectangle((CrossPlatformCrawlerGame.ScreenWidth - splashSprite.Width) / 2, (CrossPlatformCrawlerGame.ScreenHeight - splashSprite.Height) / 2, splashSprite.Width, splashSprite.Height), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 0.0f);
         }
 
         public void Notify(SkippableWaitController sender)
         {
-            WebCrawlerGame.Transition(typeof(IntroScene.IntroScene));
+            CrossPlatformCrawlerGame.Transition(typeof(IntroScene.IntroScene));
         }
 
         public bool Terminated { get => false; }

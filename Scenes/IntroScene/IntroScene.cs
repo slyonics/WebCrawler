@@ -24,7 +24,7 @@ namespace WebCrawler.Scenes.IntroScene
 
         public void Notify(SkippableWaitController sender)
         {
-            WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+            CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
 
             /*
             if (GameProfile.SaveList.Count > 0)
@@ -45,7 +45,7 @@ namespace WebCrawler.Scenes.IntroScene
 
         public static void NewGame()
         {
-            WebCrawlerGame.Transition(typeof(ConversationScene.ConversationScene), "Prologue", new Rectangle(-140, 25, 280, 62), true);
+            CrossPlatformCrawlerGame.Transition(typeof(ConversationScene.ConversationScene), "Prologue", new Rectangle(-140, 25, 280, 62), true);
 
             // WebCrawlerGame.Transition(typeof(MapScene.MapScene), GameMap.TechWorldIntro, 19, 33, Orientation.Down);
         }

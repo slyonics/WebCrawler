@@ -36,7 +36,7 @@ namespace WebCrawler.Scenes.StatusScene
             transitionController.UpdateTransition += new Action<float>(t => colorFade.Amount = t);
             transitionController.FinishTransition += new Action<TransitionDirection>(t => colorFade.Terminate());
             AddController(transitionController);
-            WebCrawlerGame.TransitionShader = colorFade;
+            CrossPlatformCrawlerGame.TransitionShader = colorFade;
         }
     }
 }

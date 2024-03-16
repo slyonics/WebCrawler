@@ -78,7 +78,7 @@ namespace WebCrawler.Scenes.TitleScene
 
                 string map = GameProfile.GetSaveData<string>("LastMapName");
                 string entrance = GameProfile.GetSaveData<string>("LastEntrance");
-                WebCrawlerGame.Transition(typeof(MapScene.MapScene), map, entrance);
+                CrossPlatformCrawlerGame.Transition(typeof(MapScene.MapScene), map, entrance);
             }
         }
 

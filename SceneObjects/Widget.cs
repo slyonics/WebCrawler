@@ -339,12 +339,12 @@ namespace WebCrawler.SceneObjects
             {
                 switch (token)
                 {
-                    case "$ScreenWidth": return WebCrawlerGame.ScreenWidth;
-                    case "$ScreenHeight": return WebCrawlerGame.ScreenHeight;
-                    case "$CenterX": return WebCrawlerGame.ScreenWidth / 2;
-                    case "$CenterY": return WebCrawlerGame.ScreenHeight / 2;
+                    case "$ScreenWidth": return CrossPlatformCrawlerGame.ScreenWidth;
+                    case "$ScreenHeight": return CrossPlatformCrawlerGame.ScreenHeight;
+                    case "$CenterX": return CrossPlatformCrawlerGame.ScreenWidth / 2;
+                    case "$CenterY": return CrossPlatformCrawlerGame.ScreenHeight / 2;
                     case "$Top": return 0;
-                    case "$Bottom": return WebCrawlerGame.ScreenHeight;
+                    case "$Bottom": return CrossPlatformCrawlerGame.ScreenHeight;
                     default: throw new Exception();
                 }
             }
@@ -359,12 +359,12 @@ namespace WebCrawler.SceneObjects
             {
                 switch (token)
                 {
-                    case "$ScreenWidth": return WebCrawlerGame.ScreenWidth;
-                    case "$ScreenHeight": return WebCrawlerGame.ScreenHeight;
-                    case "$CenterX": return WebCrawlerGame.ScreenWidth / 2;
-                    case "$CenterY": return WebCrawlerGame.ScreenHeight / 2;
+                    case "$ScreenWidth": return CrossPlatformCrawlerGame.ScreenWidth;
+                    case "$ScreenHeight": return CrossPlatformCrawlerGame.ScreenHeight;
+                    case "$CenterX": return CrossPlatformCrawlerGame.ScreenWidth / 2;
+                    case "$CenterY": return CrossPlatformCrawlerGame.ScreenHeight / 2;
                     case "$Top": return 0;
-                    case "$Bottom": return WebCrawlerGame.ScreenHeight;
+                    case "$Bottom": return CrossPlatformCrawlerGame.ScreenHeight;
                     default: throw new Exception();
                 }
             }
@@ -416,8 +416,8 @@ namespace WebCrawler.SceneObjects
                         continue;
 
                     default:
-                        if (node.Name.Contains('.')) widget = (Widget)assembly.CreateInstance(WebCrawlerGame.GAME_NAME + "." + node.Name, false, BindingFlags.CreateInstance, null, new object[] { this, widgetDepth + depthOffset }, null, null);
-                        else widget = (Widget)assembly.CreateInstance(WebCrawlerGame.GAME_NAME + ".SceneObjects.Widgets." + node.Name, false, BindingFlags.CreateInstance, null, new object[] { this, widgetDepth + depthOffset }, null, null);
+                        if (node.Name.Contains('.')) widget = (Widget)assembly.CreateInstance(CrossPlatformCrawlerGame.GAME_NAME + "." + node.Name, false, BindingFlags.CreateInstance, null, new object[] { this, widgetDepth + depthOffset }, null, null);
+                        else widget = (Widget)assembly.CreateInstance(CrossPlatformCrawlerGame.GAME_NAME + ".SceneObjects.Widgets." + node.Name, false, BindingFlags.CreateInstance, null, new object[] { this, widgetDepth + depthOffset }, null, null);
                         break;
                 }
 

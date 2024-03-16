@@ -70,7 +70,7 @@ namespace WebCrawler.SceneObjects
             {
                 if (layer.speed > 0.001f)
                 {
-                    for (int i = 0; i < Math.Max(2, WebCrawlerGame.ScreenWidth / layer.background.Width); i++)
+                    for (int i = 0; i < Math.Max(2, CrossPlatformCrawlerGame.ScreenWidth / layer.background.Width); i++)
                     {
                         spriteBatch.Draw(layer.background, layer.offset + new Vector2(layer.background.Width * i, backdropHeight - layer.background.Height), null, color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, STARTING_DEPTH - depthOffset);
                     }

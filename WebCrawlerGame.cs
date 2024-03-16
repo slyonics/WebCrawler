@@ -1,11 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
+using MonoGame.Extended.Content;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace WebCrawler
 {
@@ -18,8 +21,14 @@ namespace WebCrawler
         SpriteBatch spriteBatch;
 
         Texture2D splash;
+
+
+        public static WebCrawlerGame Instance { get; private set; }
+
         public WebCrawlerGame()
         {
+            Instance = this;
+
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -34,9 +43,9 @@ namespace WebCrawler
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Settings.LoadSettings();
 
             base.Initialize();
-
         }
 
         /// <summary>
@@ -49,9 +58,16 @@ namespace WebCrawler
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: Use this.Content to load your game content here
-            splash = Content.Load<Texture2D>("Graphics\\Background\\Splash");
+            // splash = AssetCache.SPRITES[GameSprite.Background_Splash]; // Content.Load<Texture2D>("Graphics\\Background\\Splash");
 
-            effect = Content.Load<Effect>("Shaders\\ColorFade");
+
+
+
+            AssetCache.LoadContent(GraphicsDevice);
+
+            splash = AssetCache.SPRITES[GameSprite.Background_Splash];
+
+            effect = AssetCache.EFFECTS[GameShader.ColorFade].Clone();
             effect.Parameters["filterRed"].SetValue(1.0f);
             effect.Parameters["filterGreen"].SetValue(1.0f);
             effect.Parameters["filterBlue"].SetValue(1.0f);
@@ -115,6 +131,22 @@ namespace WebCrawler
             
 
             base.Draw(gameTime);
+        }
+
+        public byte[] ReadJamBytes(string path)
+        {
+            byte[] result = null;
+            using (var spriteStream = Content.OpenStream(path))
+            {
+                var length = spriteStream.Length;
+                if (length <= int.MaxValue)
+                {
+                    result = new byte[length];
+                    var bytesRead = spriteStream.Read(result, 0, (int)length);
+                }
+            }
+
+            return result;
         }
     }
 }

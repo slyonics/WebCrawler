@@ -13,18 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Graphics/Background/Splash.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Graphics/Background/Splash.png
-
 #begin Shaders/ColorFade.fx
 /importer:EffectImporter
 /processor:EffectProcessor
@@ -61,6 +49,66 @@
 /processorParam:DebugMode=Auto
 /build:Shaders/WallPlus.fx
 
-#begin Views/MapView.xml
-/copy:Views/MapView.xml
+#begin Sprites.jam
+/copy:Sprites.jam
+
+#begin Data.jam
+/copy:Data.jam
+
+#begin Fonts.jam
+/copy:Fonts.jam
+
+#begin Maps.jam
+/copy:Maps.jam
+
+#begin Music.jam
+/copy:Music.jam
+
+#begin Sounds.jam
+/copy:Sounds.jam
+
+#begin Views.jam
+/copy:Views.jam
+
+#begin Shaders/BattleEnemy.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/BattleEnemy.fx
+
+#begin Shaders/BattleIntro.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/BattleIntro.fx
+
+#begin Shaders/BattlePlayer.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/BattlePlayer.fx
+
+#begin Shaders/DayNight.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/DayNight.fx
+
+#begin Shaders/HeatDistortion.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/HeatDistortion.fx
+
+#begin Shaders/Pinwheel.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/Pinwheel.fx
+
+#begin Shaders/Portrait.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/Portrait.fx
 

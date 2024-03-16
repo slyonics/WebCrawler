@@ -33,7 +33,7 @@ namespace WebCrawler.Scenes.TitleScene
             Settings.SetProgramSetting<bool>("Fullscreen", DisplayMode.Value == "Fullscreen");
             if (newFullscreen != oldFullscreen)
             {
-                WebCrawlerGame.GameInstance.ApplySettings();
+                CrossPlatformCrawlerGame.GameInstance.ApplySettings();
                 (parentScene as TitleScene).ResetSettings();
             }
         }

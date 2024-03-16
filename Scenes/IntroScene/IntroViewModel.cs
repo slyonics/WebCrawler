@@ -36,7 +36,7 @@ namespace WebCrawler.Scenes.IntroScene
 
             if (Input.CurrentInput.AnythingPressed())
             {
-                WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+                CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
                 return;
             }
 

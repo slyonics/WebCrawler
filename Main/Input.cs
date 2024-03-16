@@ -43,9 +43,9 @@ namespace WebCrawler.Main
 
             // if (newMouseState.LeftButton == ButtonState.Pressed) MOUSE_MODE = true;
 
-            MousePosition = new Vector2(newMouseState.Position.X, newMouseState.Position.Y) / WebCrawlerGame.Scale;
+            MousePosition = new Vector2(newMouseState.Position.X, newMouseState.Position.Y) / CrossPlatformCrawlerGame.Scale;
 
-            DeltaMouseGame = new Vector2((newMouseState.Position.X - oldMouseState.Position.X) / 2.0f, (newMouseState.Position.Y - oldMouseState.Position.Y) / 2.0f) / WebCrawlerGame.Scale;
+            DeltaMouseGame = new Vector2((newMouseState.Position.X - oldMouseState.Position.X) / 2.0f, (newMouseState.Position.Y - oldMouseState.Position.Y) / 2.0f) / CrossPlatformCrawlerGame.Scale;
         }
 
         public static bool LeftMouseClicked { get => newMouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed; }

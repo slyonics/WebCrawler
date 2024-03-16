@@ -31,19 +31,19 @@ namespace WebCrawler.SceneObjects
 
         public void Center(Vector2 target)
         {
-            position = target - new Vector2(WebCrawlerGame.ScreenWidth / 2, WebCrawlerGame.ScreenHeight / 2);
+            position = target - new Vector2(CrossPlatformCrawlerGame.ScreenWidth / 2, CrossPlatformCrawlerGame.ScreenHeight / 2);
             ClampBounds();
         }
 
         private protected void ClampBounds()
         {
             if (position.X < bounds.Left) position.X = bounds.Left;
-            if (position.X > bounds.Right - WebCrawlerGame.ScreenWidth) position.X = bounds.Right - WebCrawlerGame.ScreenWidth;
+            if (position.X > bounds.Right - CrossPlatformCrawlerGame.ScreenWidth) position.X = bounds.Right - CrossPlatformCrawlerGame.ScreenWidth;
             if (position.Y < bounds.Top) position.Y = bounds.Top;
-            if (position.Y > bounds.Bottom - WebCrawlerGame.ScreenHeight) position.Y = bounds.Bottom - WebCrawlerGame.ScreenHeight;
+            if (position.Y > bounds.Bottom - CrossPlatformCrawlerGame.ScreenHeight) position.Y = bounds.Bottom - CrossPlatformCrawlerGame.ScreenHeight;
 
             matrix = Matrix.CreateTranslation(new Vector3(-((int)position.X + CenteringOffsetX), -((int)position.Y + CenteringOffsetY), 0.0f));
-            view = new Rectangle((int)position.X + CenteringOffsetX, (int)position.Y + CenteringOffsetY, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight);
+            view = new Rectangle((int)position.X + CenteringOffsetX, (int)position.Y + CenteringOffsetY, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight);
         }
 
         public float GetDepth(float z)
@@ -74,8 +74,8 @@ namespace WebCrawler.SceneObjects
         public Rectangle View { get => view; }
         public Controller Controller { set => controller = value; }
         public bool Stationary { get => stationary; set => stationary = value; }
-        public int CenteringOffsetX { get => Math.Max(0, (WebCrawlerGame.ScreenWidth - bounds.Width) / 2); }
-        public int CenteringOffsetY { get => Math.Max(0, (WebCrawlerGame.ScreenHeight - bounds.Height) / 2); }
+        public int CenteringOffsetX { get => Math.Max(0, (CrossPlatformCrawlerGame.ScreenWidth - bounds.Width) / 2); }
+        public int CenteringOffsetY { get => Math.Max(0, (CrossPlatformCrawlerGame.ScreenHeight - bounds.Height) / 2); }
         public int MaxVisibleY { get => view.Bottom + LARGEST_ENTITY_SIZE; }
     }
 }

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Reflection.Metadata;
+using WebCrawler;
 
 namespace WebCrawler.Main
 {
@@ -18,7 +20,7 @@ namespace WebCrawler.Main
         public static Dictionary<GameMap, string> MAPS = new Dictionary<GameMap, string>();
         public static Dictionary<string, string> DATA = new Dictionary<string, string>();
 
-        public static void LoadContent(ContentManager contentManager, GraphicsDevice graphicsDevice)
+        public static void LoadContent(GraphicsDevice graphicsDevice)
         {
             LoadData();
             LoadShaders(graphicsDevice);
@@ -29,7 +31,7 @@ namespace WebCrawler.Main
 
         public static List<Tuple<byte[], byte[]>> LoadAssetData(string jamPath)
         {
-            byte[] packedData = File.ReadAllBytes(jamPath);
+            byte[] packedData = WebCrawlerGame.Instance.ReadJamBytes(jamPath);
             int assetCount = BitConverter.ToInt32(packedData, 0);
             int uncompressedSize = BitConverter.ToInt32(packedData, 4);
             byte[] inflatedData = new byte[uncompressedSize];
@@ -54,7 +56,7 @@ namespace WebCrawler.Main
 
             return rawAssets;
         }
-
+                
         private static void LoadData()
         {
             if (!File.Exists("Data.jam")) return;
@@ -72,11 +74,11 @@ namespace WebCrawler.Main
 
         private static void LoadShaders(GraphicsDevice graphicsDevice)
         {
-            List<Tuple<byte[], byte[]>> shaderAssets = LoadAssetData("Shaders.jam");
-            foreach (Tuple<byte[], byte[]> asset in shaderAssets)
+            foreach (GameShader gameShader in Enum.GetValues(typeof(GameShader)))
             {
-                string shaderName = Encoding.ASCII.GetString(asset.Item1);
-                EFFECTS.Add((GameShader)Enum.Parse(typeof(GameShader), shaderName.Replace('\\', '_')), new Effect(graphicsDevice, asset.Item2));
+                if (gameShader == GameShader.None) continue;
+
+                EFFECTS.Add(gameShader, WebCrawlerGame.Instance.Content.Load<Effect>("Shaders/" + gameShader.ToString().Replace('/', '_')));
             }
         }
 

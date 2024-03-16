@@ -61,7 +61,7 @@ namespace WebCrawler.Scenes.MapScene
             Vector2 movement = new Vector2(inputFrame.AxisX, inputFrame.AxisY);
             if (movement.Length() > 0.0001f) movement.Normalize();
             if (Input.LeftMouseState == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
-                Input.MousePosition.X >= 0 && Input.MousePosition.Y >= 0 && Input.MousePosition.X < WebCrawlerGame.ScreenWidth && Input.MousePosition.Y < WebCrawlerGame.ScreenHeight)
+                Input.MousePosition.X >= 0 && Input.MousePosition.Y >= 0 && Input.MousePosition.X < CrossPlatformCrawlerGame.ScreenWidth && Input.MousePosition.Y < CrossPlatformCrawlerGame.ScreenHeight)
             {
                 movement = Input.MousePosition + mapScene.Camera.Position - player.Position + new Vector2(mapScene.Camera.CenteringOffsetX, mapScene.Camera.CenteringOffsetY);
                 if (movement.Length() > 1.0f) movement.Normalize();

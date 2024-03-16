@@ -79,7 +79,7 @@ namespace WebCrawler.Scenes.CrawlerScene
         public Dictionary<Direction, string[]> ActivateScript { get; set; } = new Dictionary<Direction, string[]>();
 
         //public WallShader WallEffect { get; private set; }
-        private GraphicsDevice graphicsDevice = WebCrawlerGame.GameInstance.GraphicsDevice;
+        private GraphicsDevice graphicsDevice = CrossPlatformCrawlerGame.GameInstance.GraphicsDevice;
 
         private CrawlerScene parentScene;
         private Matrix translationMatrix;

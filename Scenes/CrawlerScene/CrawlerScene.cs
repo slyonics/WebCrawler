@@ -613,9 +613,9 @@ namespace WebCrawler.Scenes.CrawlerScene
 
             graphicsDevice.SetRenderTarget(compositeRender);
 
-            if (!WebCrawlerGame.ClearedCompositeRender)
+            if (!CrossPlatformCrawlerGame.ClearedCompositeRender)
             {
-                WebCrawlerGame.ClearedCompositeRender = true;
+                CrossPlatformCrawlerGame.ClearedCompositeRender = true;
                 graphicsDevice.Clear(Color.Transparent);
             }
 

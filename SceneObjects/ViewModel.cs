@@ -30,7 +30,7 @@ namespace WebCrawler.SceneObjects
 
             widgetController = iScene.AddController(new WidgetController(iPriorityLevel, this));
 
-            currentWindow = new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight);
+            currentWindow = new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight);
         }
 
         public ViewModel(Scene iScene, PriorityLevel iPriorityLevel, GameView viewName)
@@ -41,7 +41,7 @@ namespace WebCrawler.SceneObjects
 
             widgetController = iScene.AddController(new WidgetController(iPriorityLevel, this));
 
-            currentWindow = new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight);
+            currentWindow = new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight);
 
             LoadView(viewName);
         }

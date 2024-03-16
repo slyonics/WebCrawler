@@ -123,7 +123,7 @@ namespace WebCrawler.Scenes.ConversationScene
         public override void DrawBackground(SpriteBatch spriteBatch)
         {
             if (backgroundSprite != null)
-                spriteBatch.Draw(backgroundSprite, new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
+                spriteBatch.Draw(backgroundSprite, new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
         }
 
         public void FinishDialogue()
