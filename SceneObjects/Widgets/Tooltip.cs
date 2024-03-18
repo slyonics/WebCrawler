@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -47,8 +46,8 @@ namespace WebCrawler.SceneObjects.Widgets
             int height = Text.GetStringHeight(Font) + TOOLTIP_MARGIN_HEIGHT * 2;
 
             currentWindow = new Rectangle((int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH, (int)mouseOverPosition.Y - Text.GetStringHeight(Font) - TOOLTIP_MARGIN_HEIGHT + height / 2, width, height);
-            if (currentWindow.Right > CrossPlatformCrawlerGame.ScreenWidth) currentWindow.X = (int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH - Math.Max(Text.GetStringLength(Font, text) + TOOLTIP_MARGIN_WIDTH * 2, tooltipFrame.FrameWidth * 3);
-            if (currentWindow.Bottom > CrossPlatformCrawlerGame.ScreenHeight) currentWindow.Y -= currentWindow.Bottom - CrossPlatformCrawlerGame.ScreenHeight;
+            if (currentWindow.Right > WebCrawlerGame.ScreenWidth) currentWindow.X = (int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH - Math.Max(Text.GetStringLength(Font, text) + TOOLTIP_MARGIN_WIDTH * 2, tooltipFrame.FrameWidth * 3);
+            if (currentWindow.Bottom > WebCrawlerGame.ScreenHeight) currentWindow.Y -= currentWindow.Bottom - WebCrawlerGame.ScreenHeight;
 
             tooltipFrame.Bounds = currentWindow;
         }
@@ -64,8 +63,8 @@ namespace WebCrawler.SceneObjects.Widgets
             currentWindow.X = (int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH;
             currentWindow.Y = (int)mouseOverPosition.Y - Text.GetStringHeight(Font);
 
-            if (currentWindow.Right > CrossPlatformCrawlerGame.ScreenWidth) currentWindow.X = (int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH - Math.Max(Text.GetStringLength(Font, text) + TOOLTIP_MARGIN_WIDTH * 2, tooltipFrame.FrameWidth * 3);
-            if (currentWindow.Bottom > CrossPlatformCrawlerGame.ScreenHeight) currentWindow.Y -= currentWindow.Bottom - CrossPlatformCrawlerGame.ScreenHeight;
+            if (currentWindow.Right > WebCrawlerGame.ScreenWidth) currentWindow.X = (int)mouseOverPosition.X - TOOLTIP_MARGIN_WIDTH + TOOLTIP_MARGIN_WIDTH - Math.Max(Text.GetStringLength(Font, text) + TOOLTIP_MARGIN_WIDTH * 2, tooltipFrame.FrameWidth * 3);
+            if (currentWindow.Bottom > WebCrawlerGame.ScreenHeight) currentWindow.Y -= currentWindow.Bottom - WebCrawlerGame.ScreenHeight;
 
             tooltipFrame.Bounds = currentWindow;
         }

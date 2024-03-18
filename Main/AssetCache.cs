@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Reflection.Metadata;
-using WebCrawler;
 
 namespace WebCrawler.Main
 {
@@ -31,7 +30,7 @@ namespace WebCrawler.Main
 
         public static List<Tuple<byte[], byte[]>> LoadAssetData(string jamPath)
         {
-            byte[] packedData = WebCrawlerGame.Instance.ReadJamBytes(jamPath);
+            byte[] packedData = WebCrawlerGame.GameInstance.ReadJamBytes(jamPath);
             int assetCount = BitConverter.ToInt32(packedData, 0);
             int uncompressedSize = BitConverter.ToInt32(packedData, 4);
             byte[] inflatedData = new byte[uncompressedSize];
@@ -59,8 +58,6 @@ namespace WebCrawler.Main
                 
         private static void LoadData()
         {
-            if (!File.Exists("Data.jam")) return;
-
             List<Tuple<byte[], byte[]>> dataAssets = LoadAssetData("Data.jam");
             DATA = dataAssets.ToDictionary(x => Encoding.Unicode.GetString(x.Item1), x => Encoding.Unicode.GetString(x.Item2));
         }
@@ -77,15 +74,12 @@ namespace WebCrawler.Main
             foreach (GameShader gameShader in Enum.GetValues(typeof(GameShader)))
             {
                 if (gameShader == GameShader.None) continue;
-
-                EFFECTS.Add(gameShader, WebCrawlerGame.Instance.Content.Load<Effect>("Shaders/" + gameShader.ToString().Replace('/', '_')));
+                EFFECTS.Add(gameShader, WebCrawlerGame.GameInstance.Content.Load<Effect>("Shaders/" + gameShader.ToString().Replace('/', '_')));
             }
         }
 
         private static void LoadViews()
         {
-            if (!File.Exists("Views.jam")) return;
-
             List<Tuple<byte[], byte[]>> viewAssets = LoadAssetData("Views.jam");
             foreach (Tuple<byte[], byte[]> asset in viewAssets)
             {
@@ -106,8 +100,6 @@ namespace WebCrawler.Main
 
         private static void LoadMaps()
         {
-            if (!File.Exists("Maps.jam")) return;
-
             List<Tuple<byte[], byte[]>> viewAssets = LoadAssetData("Maps.jam");
             foreach (Tuple<byte[], byte[]> asset in viewAssets)
             {

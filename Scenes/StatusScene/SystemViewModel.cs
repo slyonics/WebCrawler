@@ -89,7 +89,7 @@ namespace WebCrawler.Scenes.StatusScene
 
             if (AvailableSaves[saveSlot].Location.Value == "- Empty Save -")
             {
-                ((MapScene.MapScene)CrossPlatformCrawlerGame.SceneStack.First(x => x is MapScene.MapScene)).SaveMapPosition();
+                ((MapScene.MapScene)WebCrawlerGame.SceneStack.First(x => x is MapScene.MapScene)).SaveMapPosition();
                 
                 string portrait1 = GameProfile.PlayerProfile.Party[0].Portrait.Value;
                 string portrait2 = GameProfile.PlayerProfile.Party.Count() > 1 ? GameProfile.PlayerProfile.Party[1].Portrait.Value : GameSprite.Actors_Blank.ToString();
@@ -121,12 +121,12 @@ namespace WebCrawler.Scenes.StatusScene
                     DialogueRecords = dialogueRecords.ToArray()
                 };
                 var convoScene = new ConversationScene.ConversationScene(convoRecord);
-                CrossPlatformCrawlerGame.StackScene(convoScene, true);
+                WebCrawlerGame.StackScene(convoScene, true);
                 convoScene.OnTerminated += new TerminationFollowup(() =>
                 {
                     if (GameProfile.GetSaveData<string>("LastSelection") == "Yes")
                     {
-                        ((MapScene.MapScene)CrossPlatformCrawlerGame.SceneStack.First(x => x is MapScene.MapScene)).SaveMapPosition();
+                        ((MapScene.MapScene)WebCrawlerGame.SceneStack.First(x => x is MapScene.MapScene)).SaveMapPosition();
 
                         string portrait1 = GameProfile.PlayerProfile.Party[0].Portrait.Value;
                         string portrait2 = GameProfile.PlayerProfile.Party.Count() > 1 ? GameProfile.PlayerProfile.Party[1].Portrait.Value : GameSprite.Actors_Blank.ToString();

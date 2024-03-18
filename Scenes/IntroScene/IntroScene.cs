@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects.Controllers;
 using WebCrawler.SceneObjects.Maps;
 using Microsoft.Xna.Framework;
@@ -24,7 +23,7 @@ namespace WebCrawler.Scenes.IntroScene
 
         public void Notify(SkippableWaitController sender)
         {
-            CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+            WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
 
             /*
             if (GameProfile.SaveList.Count > 0)
@@ -45,7 +44,7 @@ namespace WebCrawler.Scenes.IntroScene
 
         public static void NewGame()
         {
-            CrossPlatformCrawlerGame.Transition(typeof(ConversationScene.ConversationScene), "Prologue", new Rectangle(-140, 25, 280, 62), true);
+            WebCrawlerGame.Transition(typeof(ConversationScene.ConversationScene), "Prologue", new Rectangle(-140, 25, 280, 62), true);
 
             // WebCrawlerGame.Transition(typeof(MapScene.MapScene), GameMap.TechWorldIntro, 19, 33, Orientation.Down);
         }

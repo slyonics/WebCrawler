@@ -102,6 +102,7 @@ namespace WebCrawler.Main
                     }
                 }
 
+                /*
                 Buttons buttonBinding;
                 List<Buttons> mandatoryButtonList;
                 if (Settings.GamePadBindings.TryGetValue(command, out buttonBinding)) commandState.buttonBindings.Add(buttonBinding);
@@ -112,6 +113,7 @@ namespace WebCrawler.Main
                         if (!commandState.buttonBindings.Contains(button)) commandState.buttonBindings.Add(button);
                     }
                 }
+                */
 
                 commandStates[(int)command] = commandState;
             }
@@ -132,7 +134,9 @@ namespace WebCrawler.Main
             float keyPresses = 0;
             float buttonPresses = 0;
 
+            /*
             bool gamePadEnabled = GamePad.GetCapabilities(PlayerIndex.One).IsConnected;
+            
             if (gamePadEnabled)
             {
                 string padName = GamePad.GetCapabilities(PlayerIndex.One).DisplayName;
@@ -150,6 +154,7 @@ namespace WebCrawler.Main
 
                 buttonPresses += (Math.Abs(axisX) + Math.Abs(axisY)) / 2.0f;
             }
+            */
 
             foreach (CommandState commandState in commandStates)
             {
@@ -164,6 +169,7 @@ namespace WebCrawler.Main
                     }
                 }
 
+                /*
                 if (gamePadEnabled && !commandState.down)
                 {
                     foreach (Buttons button in commandState.buttonBindings)
@@ -177,6 +183,7 @@ namespace WebCrawler.Main
                         }
                     }
                 }
+                */
 
                 if (commandState.down && !commandState.previouslyDown) commandState.pressed = true;
                 else if (!commandState.down && commandState.previouslyDown) commandState.released = true;

@@ -64,8 +64,8 @@ namespace WebCrawler.Scenes.CrawlerScene
 
         public CrawlerScene(int huh) : this()
         {
-            mapViewModel = AddView(new MapViewModel(this, GameView.CrawlerScene_MapView));
-            MapPanel = mapViewModel.GetWidget<Panel>("MapPanel");
+            //mapViewModel = AddView(new MapViewModel(this, GameView.CrawlerScene_MapView));
+            //MapPanel = mapViewModel.GetWidget<Panel>("MapPanel");
 
             MapWidth = 7;
             MapHeight = 7;
@@ -418,7 +418,7 @@ namespace WebCrawler.Scenes.CrawlerScene
 
         public static void Initialize(GraphicsDevice graphicsDevice, int multiSamples)
         {
-            mapRender = new RenderTarget2D(graphicsDevice, 324, 200, false, SurfaceFormat.Color, DepthFormat.Depth16, multiSamples, RenderTargetUsage.PlatformContents);
+            mapRender = new RenderTarget2D(graphicsDevice, 324, 200);
         }
 
         public override void BeginScene()
@@ -604,18 +604,20 @@ namespace WebCrawler.Scenes.CrawlerScene
             DrawOverlay(spriteBatch);
             spriteBatch.End();
 
+            /*
             Rectangle miniMapBounds = MapViewModel.GetWidget<Panel>("MiniMapPanel").InnerBounds;
             miniMapBounds.X += (int)MapViewModel.GetWidget<Panel>("MiniMapPanel").Position.X;
             miniMapBounds.Y += (int)MapViewModel.GetWidget<Panel>("MiniMapPanel").Position.Y;
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, null);
             DrawMiniMap(spriteBatch, miniMapBounds, Color.White, 0.6f);
             spriteBatch.End();
+            */
 
             graphicsDevice.SetRenderTarget(compositeRender);
 
-            if (!CrossPlatformCrawlerGame.ClearedCompositeRender)
+            if (!WebCrawlerGame.ClearedCompositeRender)
             {
-                CrossPlatformCrawlerGame.ClearedCompositeRender = true;
+                WebCrawlerGame.ClearedCompositeRender = true;
                 graphicsDevice.Clear(Color.Transparent);
             }
 
@@ -668,12 +670,12 @@ namespace WebCrawler.Scenes.CrawlerScene
         {
             graphicsDevice.Clear(new Color(0.0f, 1.0f, 0.5f, 0.0f));
 
-            Panel mapPanel = mapViewModel.GetWidget<Panel>("MapPanel");
-            if (!mapPanel.Transitioning)
+            //Panel mapPanel = mapViewModel.GetWidget<Panel>("MapPanel");
+            //if (!mapPanel.Transitioning)
             {
-                Rectangle mapBounds = mapPanel.InnerBounds;
-                mapBounds.X += (int)mapPanel.Position.X;
-                mapBounds.Y += (int)mapPanel.Position.Y;
+                //Rectangle mapBounds = mapPanel.InnerBounds;
+                //mapBounds.X += (int)mapPanel.Position.X;
+                //mapBounds.Y += (int)mapPanel.Position.Y;
 
 
                 Vector3 cameraUp = new Vector3(0, -1, 0);

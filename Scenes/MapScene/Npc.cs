@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.SceneObjects.Maps;
+﻿using WebCrawler.SceneObjects.Maps;
 using ldtk;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -103,7 +102,7 @@ namespace WebCrawler.Scenes.MapScene
 
         public override void Update(GameTime gameTime)
         {
-            if (PriorityLevel == PriorityLevel.GameLevel && CrossPlatformCrawlerGame.SceneStack.Count > 0) return;
+            if (PriorityLevel == PriorityLevel.GameLevel && WebCrawlerGame.SceneStack.Count > 0) return;
 
             base.Update(gameTime);
         }

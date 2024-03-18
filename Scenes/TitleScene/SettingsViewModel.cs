@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects.Widgets;
 using System;
 using System.Collections.Generic;
@@ -33,7 +32,7 @@ namespace WebCrawler.Scenes.TitleScene
             Settings.SetProgramSetting<bool>("Fullscreen", DisplayMode.Value == "Fullscreen");
             if (newFullscreen != oldFullscreen)
             {
-                CrossPlatformCrawlerGame.GameInstance.ApplySettings();
+                WebCrawlerGame.GameInstance.ApplySettings();
                 (parentScene as TitleScene).ResetSettings();
             }
         }

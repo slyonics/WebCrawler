@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,7 +35,7 @@ namespace WebCrawler.Scenes.IntroScene
 
             if (Input.CurrentInput.AnythingPressed())
             {
-                CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+                WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
                 return;
             }
 

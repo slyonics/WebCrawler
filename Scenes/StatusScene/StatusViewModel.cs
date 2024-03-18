@@ -48,7 +48,7 @@ namespace WebCrawler.Scenes.StatusScene
 
             if (returnToTitle)
             {
-                CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+                WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
                 returnToTitle = false;
                 return;
             }
@@ -106,7 +106,7 @@ namespace WebCrawler.Scenes.StatusScene
                     break;
 
                 case "Quit":
-                    if (statusScene.Saved) CrossPlatformCrawlerGame.Transition(typeof(TitleScene.TitleScene));
+                    if (statusScene.Saved) WebCrawlerGame.Transition(typeof(TitleScene.TitleScene));
                     else
                     {
                         var dialogueRecords = new List<ConversationScene.DialogueRecord>();
@@ -122,7 +122,7 @@ namespace WebCrawler.Scenes.StatusScene
                             DialogueRecords = dialogueRecords.ToArray()
                         };
                         var convoScene = new ConversationScene.ConversationScene(convoRecord);
-                        CrossPlatformCrawlerGame.StackScene(convoScene, true);
+                        WebCrawlerGame.StackScene(convoScene, true);
                         convoScene.OnTerminated += new TerminationFollowup(() =>
                         {
                             if (GameProfile.GetSaveData<string>("LastSelection") == "Yes")

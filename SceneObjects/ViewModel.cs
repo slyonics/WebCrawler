@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects.Controllers;
 using K4os.Compression.LZ4;
 using Microsoft.Xna.Framework;
@@ -30,7 +29,7 @@ namespace WebCrawler.SceneObjects
 
             widgetController = iScene.AddController(new WidgetController(iPriorityLevel, this));
 
-            currentWindow = new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight);
+            currentWindow = new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight);
         }
 
         public ViewModel(Scene iScene, PriorityLevel iPriorityLevel, GameView viewName)
@@ -41,7 +40,7 @@ namespace WebCrawler.SceneObjects
 
             widgetController = iScene.AddController(new WidgetController(iPriorityLevel, this));
 
-            currentWindow = new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight);
+            currentWindow = new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight);
 
             LoadView(viewName);
         }

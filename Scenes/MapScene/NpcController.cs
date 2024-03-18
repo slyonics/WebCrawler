@@ -50,7 +50,7 @@ namespace WebCrawler.Scenes.MapScene
 
         public override void PostUpdate(GameTime gameTime)
         {
-            if (mapScene.PriorityLevel > npc.PriorityLevel || (npc.PriorityLevel == PriorityLevel.GameLevel && CrossPlatformCrawlerGame.SceneStack.Count > 0)) return;
+            if (mapScene.PriorityLevel > npc.PriorityLevel || (npc.PriorityLevel == PriorityLevel.GameLevel && WebCrawlerGame.SceneStack.Count > 0)) return;
 
             if (destinationTile != null)
             {

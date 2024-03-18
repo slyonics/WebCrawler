@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects;
 using WebCrawler.SceneObjects.Maps;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,7 +20,8 @@ namespace WebCrawler.Scenes.TitleScene
         public TitleScene()
             : base()
         {
-            savesAvailable = GameProfile.SaveList.Count > 0;
+            savesAvailable = false; // GameProfile.SaveList.Count > 0;
+
         }
 
         public override void BeginScene()
@@ -49,12 +49,12 @@ namespace WebCrawler.Scenes.TitleScene
 
         public override void DrawBackground(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(backgroundColorSprite, new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight), new Rectangle(0, 0, 1, 1), Color.Black, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(titleSprite, new Rectangle(0, 0, CrossPlatformCrawlerGame.ScreenWidth, CrossPlatformCrawlerGame.ScreenHeight), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 0.9f);
+            //spriteBatch.Draw(backgroundColorSprite, new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight), new Rectangle(0, 0, 1, 1), Color.Black, 0.0f, Vector2.Zero, SpriteEffects.None, 1.0f);
+            //spriteBatch.Draw(titleSprite, new Rectangle(0, 0, WebCrawlerGame.ScreenWidth, WebCrawlerGame.ScreenHeight), null, Color.White, 0.0f, Vector2.Zero, SpriteEffects.None, 0.9f);
 
             if (titleMenuViewModel == null && (int)blinkProgress % 2 == 0 && priorityLevel != PriorityLevel.TransitionLevel)
             {
-                Text.DrawCenteredText(spriteBatch, new Vector2(CrossPlatformCrawlerGame.ScreenWidth / 2, CrossPlatformCrawlerGame.ScreenHeight / 2 + 30), GameFont.Main, "- Press Any Button -");
+                Text.DrawCenteredText(spriteBatch, new Vector2(WebCrawlerGame.ScreenWidth / 2, WebCrawlerGame.ScreenHeight / 2 + 30), GameFont.Main, "- Press Any Button -");
             }
         }
 

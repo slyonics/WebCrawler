@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects;
 using WebCrawler.SceneObjects.Controllers;
 using WebCrawler.SceneObjects.Widgets;
@@ -66,10 +65,10 @@ namespace WebCrawler.Scenes.CrawlerScene
             mapScene.ResetWaypoints();
 
             Type sceneType = Type.GetType(tokens[1]);
-            if (tokens.Length == 6) CrossPlatformCrawlerGame.Transition(sceneType, tokens[2], int.Parse(tokens[3]), int.Parse(tokens[4]), (Direction)Enum.Parse(typeof(Direction), tokens[5]));
-            else if (tokens.Length == 3) CrossPlatformCrawlerGame.Transition(typeof(CrawlerScene), tokens[1], tokens[2]);
-            else if (tokens.Length == 2) CrossPlatformCrawlerGame.Transition(sceneType);
-            else CrossPlatformCrawlerGame.Transition(sceneType, tokens[2]);
+            if (tokens.Length == 6) WebCrawlerGame.Transition(sceneType, tokens[2], int.Parse(tokens[3]), int.Parse(tokens[4]), (Direction)Enum.Parse(typeof(Direction), tokens[5]));
+            else if (tokens.Length == 3) WebCrawlerGame.Transition(typeof(CrawlerScene), tokens[1], tokens[2]);
+            else if (tokens.Length == 2) WebCrawlerGame.Transition(sceneType);
+            else WebCrawlerGame.Transition(sceneType, tokens[2]);
         }
 
         public static void SetWaypoint(string[] tokens)
@@ -88,7 +87,7 @@ namespace WebCrawler.Scenes.CrawlerScene
 
                 ConversationScene.ConversationScene conversationScene = new ConversationScene.ConversationScene(tokens[1]);
                 conversationScene.OnTerminated += new TerminationFollowup(scriptParser.BlockScript());
-                CrossPlatformCrawlerGame.StackScene(conversationScene);
+                WebCrawlerGame.StackScene(conversationScene);
 
             }
             else
@@ -100,7 +99,7 @@ namespace WebCrawler.Scenes.CrawlerScene
 
                 var convoScene = new ConversationScene.ConversationScene(convoRecord);
                 convoScene.OnTerminated += new TerminationFollowup(scriptParser.BlockScript());
-                CrossPlatformCrawlerGame.StackScene(convoScene);
+                WebCrawlerGame.StackScene(convoScene);
             }
         }
 

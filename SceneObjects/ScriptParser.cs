@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using WebCrawler.SceneObjects.Particles;
 using Microsoft.Xna.Framework;
 using System;
@@ -176,10 +175,10 @@ namespace WebCrawler.SceneObjects
                 {
                     switch (parameter)
                     {
-                        case "$centerX": return (CrossPlatformCrawlerGame.ScreenWidth / 2).ToString();
-                        case "$centerY": return (CrossPlatformCrawlerGame.ScreenHeight / 2).ToString();
-                        case "$right": return CrossPlatformCrawlerGame.ScreenWidth.ToString();
-                        case "$bottom": return CrossPlatformCrawlerGame.ScreenHeight.ToString();
+                        case "$centerX": return (WebCrawlerGame.ScreenWidth / 2).ToString();
+                        case "$centerY": return (WebCrawlerGame.ScreenHeight / 2).ToString();
+                        case "$right": return WebCrawlerGame.ScreenWidth.ToString();
+                        case "$bottom": return WebCrawlerGame.ScreenHeight.ToString();
                         case "$top": return "0";
                         case "$left": return "0";
                         case "$money": return GameProfile.PlayerProfile.Money.Value.ToString();
@@ -326,18 +325,18 @@ namespace WebCrawler.SceneObjects
         private void StackScene(string[] tokens)
         {
             Type sceneType = Type.GetType(tokens[1]);
-            if (tokens.Length == 2) CrossPlatformCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType));
-            else if (tokens.Length == 3) CrossPlatformCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType, tokens[2]));
-            else if (tokens.Length == 4) CrossPlatformCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType, tokens[2], tokens[3]));
+            if (tokens.Length == 2) WebCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType));
+            else if (tokens.Length == 3) WebCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType, tokens[2]));
+            else if (tokens.Length == 4) WebCrawlerGame.StackScene((Scene)Activator.CreateInstance(sceneType, tokens[2], tokens[3]));
         }
 
         private void ChangeScene(string[] tokens)
         {
             Type sceneType = Type.GetType(tokens[1]);
-            if (tokens.Length == 2) CrossPlatformCrawlerGame.Transition(sceneType);
-            else if (tokens.Length == 3) CrossPlatformCrawlerGame.Transition(sceneType, tokens[2]);
-            else if (tokens.Length == 4) CrossPlatformCrawlerGame.Transition(sceneType, tokens[2], tokens[3]);
-            else if (tokens.Length == 5) CrossPlatformCrawlerGame.Transition(sceneType, tokens[2], tokens[3], tokens[4]);
+            if (tokens.Length == 2) WebCrawlerGame.Transition(sceneType);
+            else if (tokens.Length == 3) WebCrawlerGame.Transition(sceneType, tokens[2]);
+            else if (tokens.Length == 4) WebCrawlerGame.Transition(sceneType, tokens[2], tokens[3]);
+            else if (tokens.Length == 5) WebCrawlerGame.Transition(sceneType, tokens[2], tokens[3], tokens[4]);
         }
 
         private void Switch(string[] tokens)

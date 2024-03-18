@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.SceneObjects.Controllers;
+﻿using WebCrawler.SceneObjects.Controllers;
 using WebCrawler.SceneObjects.Particles;
 using WebCrawler.SceneObjects.Shaders;
 using Microsoft.Xna.Framework;
@@ -47,7 +46,7 @@ namespace WebCrawler.SceneObjects
             transitionController.UpdateTransition += new Action<float>(t => colorFade.Amount = t);
             transitionController.FinishTransition += new Action<TransitionDirection>(t => colorFade.Terminate());
             AddController(transitionController);
-            CrossPlatformCrawlerGame.TransitionShader = colorFade;
+            WebCrawlerGame.TransitionShader = colorFade;
         }
 
         public virtual void ResumeScene()
@@ -163,9 +162,9 @@ namespace WebCrawler.SceneObjects
 
             graphicsDevice.SetRenderTarget(compositeRender);
 
-            if (!CrossPlatformCrawlerGame.ClearedCompositeRender)
+            if (!WebCrawlerGame.ClearedCompositeRender)
             {
-                CrossPlatformCrawlerGame.ClearedCompositeRender = true;
+                WebCrawlerGame.ClearedCompositeRender = true;
                 graphicsDevice.Clear(Color.Transparent);
             }
 
@@ -236,7 +235,7 @@ namespace WebCrawler.SceneObjects
 
         public event TerminationFollowup OnTerminated;
 
-        public virtual int Width { get => CrossPlatformCrawlerGame.ScreenWidth; }
+        public virtual int Width { get => WebCrawlerGame.ScreenWidth; }
         public PriorityLevel PriorityLevel { get => priorityLevel; }
         public List<Controller>[] ControllerStack { get => controllerList; }
         public List<Overlay> OverlayList { get => overlayList; }

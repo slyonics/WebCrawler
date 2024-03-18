@@ -63,7 +63,7 @@ namespace WebCrawler.Scenes.MapScene
                 Controller suspendController = mapScene.AddController(new Controller(PriorityLevel.MenuLevel));
                 StatusScene.StatusScene statusScene = new StatusScene.StatusScene(mapScene.LocationName);
                 statusScene.OnTerminated += new TerminationFollowup(suspendController.Terminate);
-                CrossPlatformCrawlerGame.StackScene(statusScene, true);
+                WebCrawlerGame.StackScene(statusScene, true);
 
                 return;
             }
@@ -90,7 +90,7 @@ namespace WebCrawler.Scenes.MapScene
 
             Vector2 movement = Vector2.Zero;
             if (Input.LeftMouseState == Microsoft.Xna.Framework.Input.ButtonState.Pressed &&
-                Input.MousePosition.X >= 0 && Input.MousePosition.Y >= 0 && Input.MousePosition.X < CrossPlatformCrawlerGame.ScreenWidth && Input.MousePosition.Y < CrossPlatformCrawlerGame.ScreenHeight)
+                Input.MousePosition.X >= 0 && Input.MousePosition.Y >= 0 && Input.MousePosition.X < WebCrawlerGame.ScreenWidth && Input.MousePosition.Y < WebCrawlerGame.ScreenHeight)
             {
                 movement = Input.MousePosition + mapScene.Camera.Position - Player.Position + new Vector2(mapScene.Camera.CenteringOffsetX, mapScene.Camera.CenteringOffsetY);
                 if (movement.Length() > 1.0f) movement.Normalize();

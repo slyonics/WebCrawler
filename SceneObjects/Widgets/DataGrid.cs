@@ -1,5 +1,4 @@
-﻿using WebCrawler.Main;
-using WebCrawler.Models;
+﻿using WebCrawler.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -70,8 +69,8 @@ namespace WebCrawler.SceneObjects.Widgets
             foreach (var modelProperty in items)
             {
                 Widget childWidget;
-                if (!dataTemplate.Name.Contains('.')) childWidget = (Widget)assembly.CreateInstance(CrossPlatformCrawlerGame.GAME_NAME + ".SceneObjects.Widgets." + dataTemplate.Name, false, BindingFlags.CreateInstance, null, new object[] { this, Depth + depthOffset + WIDGET_DEPTH_OFFSET }, null, null);
-                else childWidget = (Widget)assembly.CreateInstance(CrossPlatformCrawlerGame.GAME_NAME + "." + dataTemplate.Name, false, BindingFlags.CreateInstance, null, new object[] { this, Depth + depthOffset + WIDGET_DEPTH_OFFSET }, null, null);
+                if (!dataTemplate.Name.Contains('.')) childWidget = (Widget)assembly.CreateInstance(WebCrawlerGame.GAME_NAME + ".SceneObjects.Widgets." + dataTemplate.Name, false, BindingFlags.CreateInstance, null, new object[] { this, Depth + depthOffset + WIDGET_DEPTH_OFFSET }, null, null);
+                else childWidget = (Widget)assembly.CreateInstance(WebCrawlerGame.GAME_NAME + "." + dataTemplate.Name, false, BindingFlags.CreateInstance, null, new object[] { this, Depth + depthOffset + WIDGET_DEPTH_OFFSET }, null, null);
 
                 AddChild(childWidget, dataTemplate);
 

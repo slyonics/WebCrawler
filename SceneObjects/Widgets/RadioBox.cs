@@ -60,7 +60,7 @@ namespace WebCrawler.SceneObjects.Widgets
         {
             base.Update(gameTime);
 
-            if (CrossPlatformCrawlerGame.TransitionShader != null) return;
+            if (WebCrawlerGame.TransitionShader != null) return;
 
             if (initializing) { initializing = false; return; }
             if (Terminated || !Enabled || !Visible || Transitioning || parent.Transitioning) return;
